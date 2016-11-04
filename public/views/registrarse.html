@@ -1,0 +1,12 @@
+<h1>Registrate</h1>
+<hr>
+<form>
+    <input type="text" name="nombre" ng-model="vm.credentials.nombre">
+    <input type="text" name="apellidoPaterno" ng-model="vm.credentials.apellidoPaterno">
+    <input type="text" name="apellidoMaterno" ng-model="vm.credentials.apellidoMaterno">
+    <input type="email" name="email" ng-model="vm.credentials.email">
+    <input type="text" name="nombreUsuario" ng-model="vm.credentials.nombreUsuario">
+
+    <button ng-click="vm.onSubmit()" type="submit">Registrar</button>
+
+</form>

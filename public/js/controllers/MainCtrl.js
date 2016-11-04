@@ -1,5 +1,11 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope) {
+angular.module('sampleApp').controller('MainCtrl', mainCtrl);
+mainCtrl.$inject = ['$location'];
 
-	$scope.tagline = 'Holi 2';
+function mainCtrl($location){
+	var vm = this;
+	vm.name="Ernesto";
 
-});
+}
+
+
+
