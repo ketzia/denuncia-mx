@@ -1,31 +1,69 @@
+<img class="fondoRegistro" src="img/mariachi.jpg">
 <div class="container pt40">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
+            <div class="panel panel-default sombra">
                 <div class="panel-heading text-center fondoBlanco">
                     <span class="verdeMexicano">REGÍS</span><span class="rojoMexicano">TRATE</span>
                 </div>
                 <div class="panel-body">
                     <div layout="column" ng-cloak class="md-inline-form">
                         <md-content md-theme="docs-mx" class="fondoBlanco">
-                            <!-- Nombre -->
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <label>Nombre</label>
-                                <input ng-model="vm.credentials.nombre">
-                            </md-input-container>
-                            <!-- Termina nombre -->
+                            <form name="registro" novalidate>
+                                <!-- Nombre -->
+                                <md-input-container class="md-block">
+                                    <label>Nombre</label>
+                                    <input required name="nombre" ng-model="vm.credentials.nombre">
+                                    <div ng-messages="registro.nombre.$error">
+                                        <div ng-message="required">Ingresa tu nombre</div>
+                                    </div>
+                                </md-input-container>
+                                <!-- Termina nombre -->
 
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <label>Apellido Paterno</label>
-                                <input ng-model="vm.credentials.apellidoPaterno">
-                            </md-input-container>
+                                <!-- Apellido Paterno -->
+                                <md-input-container class="md-block">
+                                    <label>Apellido Paterno</label>
+                                    <input required name="apellidoPaterno" ng-model="vm.credentials.apellidoPaterno">
+                                    <div ng-messages="registro.apellidoPaterno.$error">
+                                        <div ng-message="required">Ingresa tu apellido paterno</div>
+                                    </div>
+                                </md-input-container>
+                                <!-- Termina Apellido Paterno -->
 
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <label>Apellido Materno</label>
-                                <input ng-model="vm.credentials.apellidoMaterno">
-                            </md-input-container>
+                                <!-- Apellido Materno -->
+                                <md-input-container class="md-block">
+                                    <label>Apellido Materno</label>
+                                    <input name="apellidoMaterno" ng-model="vm.credentials.apellidoMaterno">
+                                </md-input-container>
+                                <!-- Termina Mombre -->
 
+                                <!-- Nombre usuario -->
+                                <md-input-container class="md-block">
+                                    <label>Nombre de usuario</label>
+                                    <input required name="nombreUsuario" ng-model="vm.credentials.nombreUsuario">
+                                    <div ng-messages="registro.nombreUsuario.$error">
+                                        <div ng-message="required">Ingresa tu nombre de usuario</div>
+                                    </div>
+                                </md-input-container>
+                                <!-- Termina nombre usuario -->
 
+                                <md-input-container class="md-block">
+                                    <label>Email</label>
+                                    <input required type="email" name="email" ng-model="vm.credentials.email"
+                                           minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+                                    <div ng-messages="registro.email.$error" role="alert">
+                                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                            Tu email debe de tener entre 10 y 100 caracteres de largo y tener formato de email.
+                                        </div>
+                                    </div>
+                                </md-input-container>
+
+                                <div>
+                                    <button type="submit" ng-click="vm.onSubmit()" class="btn btn-lg btn-filled">Registrar</button>
+                                </div>
+
+                            </form>
                         </md-content>
                     </div>
                 </div>
@@ -33,6 +71,7 @@
         </div>
     </div>
 </div>
+
 <!--
 <h1>Registrate</h1>
 <hr>

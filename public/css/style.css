@@ -9,3 +9,24 @@
 .fondoBlanco{
     background-color: #ffffff !important;
 }
+
+.sombra{
+    box-shadow: rgba(0,0,0,0.2) 10px 10px 10px;
+}
+
+
+.fondoRegistro {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    left: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .fondoRegistro {
+        left: 50%;
+        margin-left: -512px;
+    }
+}

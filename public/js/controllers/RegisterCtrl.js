@@ -1,7 +1,7 @@
 angular.module('sampleApp').controller('RegisterCtrl', registerCtrl);
-registerCtrl.$inject = ['$http'];
+registerCtrl.$inject = ['$http','$rootScope'];
 
-function registerCtrl($http){
+function registerCtrl($http,$rootScope){
     var vm = this;
 
     vm.credentials = {
@@ -14,12 +14,17 @@ function registerCtrl($http){
 
     vm.onSubmit = function(){
         //console.log(vm.credentials);
-        return $http.post('/api/user/register', vm.credentials)
-            .error(function(err){
-                console.log("Hubo un error: "+ err.message);
-            })
-            .then(function(data){
-                console.log("Data: " + data);
-            });
+        if(vm.credentials.nombre != "" && vm.credentials.apellidoPaterno != "" && vm.credentials.email != "" && vm.credentials.nombreUsuario != ""){
+            return $http.post('/api/user/register', vm.credentials)
+                .error(function(err){
+                    console.log("Hubo un error: "+ err.message);
+                })
+                .then(function(data){
+                    console.log("Data: " + data);
+                });
+        }else{
+            console.log("aun faltan datos");
+        }
+
     }
 }

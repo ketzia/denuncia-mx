@@ -5,9 +5,11 @@ angular.module('sampleApp', [
     'NerdService',
     'GeekCtrl',
     'GeekService',
-    'ngMaterial'])
+    'ngMaterial',
+    'ngMessages'])
     .run(function($rootScope) {
         $rootScope.page = "";
+        $rootScope.background = "";
     })
     .config(function($mdThemingProvider){
         $mdThemingProvider.theme('docs-mx', 'default')
