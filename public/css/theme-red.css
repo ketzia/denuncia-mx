@@ -576,7 +576,8 @@ footer {
   overflow: hidden;
 }
 footer {
-  padding: 72px 0;
+  /*padding: 72px 0;*/
+  padding: 26px 0;
 }
 .fullscreen {
   height: 100vh;

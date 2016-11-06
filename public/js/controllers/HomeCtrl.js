@@ -1,15 +1,9 @@
 angular.module('sampleApp').controller('HomeCtrl', homeCtrl);
-homeCtrl.$inject = ['$location','$rootScope'];
+homeCtrl.$inject = ['$location','$rootScope','authentication'];
 
-function homeCtrl($location,$rootScope){
+function homeCtrl($location,$rootScope,authentication){
     var vm = this;
-    vm.name="Ernesto";
-
     $rootScope.page="home";
-
-
-
-
 
 }
 

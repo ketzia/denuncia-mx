@@ -1,9 +1,10 @@
 var User = require('./models/User');
+var passport = require('passport');
+
 
 module.exports = function(app) {
     // API v1 - Denuncia-mx
     // template -> /api/route
-
 
     app.get('/api/users', function(req,res){
         User.find({},function(err,data){
@@ -22,19 +23,41 @@ module.exports = function(app) {
         user.apellidoMaterno = req.body.apellidoMaterno;
         user.nombreUsuario = req.body.nombreUsuario;
         user.email = req.body.email;
+        user.setPassword(req.body.password);
 
         user.save(function(err){
             if(err){
                 res.status(500).json(err);
             }else{
-                console.log("Usuario registrado");
                 res.status(200);
+                var token = user.generateJwt();
+                //console.log(token);
+                res.json({
+                    "token":token
+                });
             }
         });
     });
 
     app.post('/api/user/login',function(req,res){
-       // Todo logear usuario
+        passport.authenticate('local', function (err, user, info) {
+            var token;
+            if(err){
+                res.status(404).json(err);
+                return;
+            }
+            if(user){
+                token = user.generateJwt();
+                res.status(200);
+                //console.log(token);
+                res.json({
+                    "token":token
+                });
+            }else{
+                // Aqui enviamos la informacion del error
+                res.status(401).json(info);
+            }
+        })(req,res);
     });
 
     app.get('*', function(req, res) {

@@ -45,11 +45,18 @@
 	<script src="js/controllers/MainCtrl.js"></script>
 	<script src="js/controllers/NerdCtrl.js"></script>
     <script src="js/controllers/HomeCtrl.js"></script>
+
+
+
 	<script src="js/services/NerdService.js"></script>
 	<script src="js/controllers/GeekCtrl.js"></script>
 	<script src="js/services/GeekService.js"></script>
 	<script src="js/controllers/RegisterCtrl.js"></script>
+    <script src="js/controllers/LoginCtrl.js"></script>
+    <script src="js/controllers/ProfileCtrl.js"></script>
 	<script src="js/appRoutes.js"></script>
+
+    <script src="js/services/AuthService.js"></script>
 
 </head>
     <body ng-app="sampleApp" class="{{$rootScope.background}}">
@@ -88,11 +95,36 @@
 
 
 
-        <div class="main-container">
+        <div class="main-container" id="contenedor">
             <ng-view></ng-view>
         </div>
 
+        <!--
+        <footer class="footer-2 bg-dark text-center-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a href="#"><img class="image-xxs fade-half" alt="Pic" src="img/LogoFooter.png"></a>
+                    </div>
 
+                    <div class="col-sm-4 text-center">
+							<span class="fade-half">
+								© Copyright 2015 Medium Rare - All Rights Reserved
+							</span>
+                    </div>
+
+                    <div class="col-sm-4 text-right text-center-xs">
+                        <ul class="list-inline social-list">
+                            <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="ti-dribbble"></i></a></li>
+                            <li><a href="#"><i class="ti-vimeo-alt"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        -->
 
 
     </body>

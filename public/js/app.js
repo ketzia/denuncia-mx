@@ -5,7 +5,9 @@ angular.module('sampleApp', [
     'NerdService',
     'GeekCtrl',
     'GeekService',
+    'ngAria',
     'ngMaterial',
+    'ngAnimate',
     'ngMessages'])
     .run(function($rootScope) {
         $rootScope.page = "";

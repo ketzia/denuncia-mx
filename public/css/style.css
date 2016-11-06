@@ -24,6 +24,12 @@
     left: 0;
 }
 
+.stickyFooter{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 @media screen and (max-width: 1024px) {
     .fondoRegistro {
         left: 50%;

@@ -47,6 +47,16 @@
                                 </md-input-container>
                                 <!-- Termina nombre usuario -->
 
+                                <!-- Password -->
+                                <md-input-container class="md-block">
+                                    <label>Contraseña</label>
+                                    <input  type="password" required name="password" ng-model="vm.credentials.password">
+                                    <div ng-messages="registro.password.$error">
+                                        <div ng-message="required">Por favor ingresa una contraseña</div>
+                                    </div>
+                                </md-input-container>
+                                <!-- Password -->
+
                                 <md-input-container class="md-block">
                                     <label>Email</label>
                                     <input required type="email" name="email" ng-model="vm.credentials.email"
