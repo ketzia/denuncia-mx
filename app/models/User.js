@@ -26,6 +26,15 @@ var userSchema = new mongoose.Schema({
         required: true,
         unique:true
     },
+    tipoUsuario:{
+        type: String,
+        required: true,
+        default: 'usuario'
+    },
+    delegacion:{
+        type: Schema.Types.ObjectId, ref: 'Delegacion',
+        required: true
+    },
     hash: String,
     salt: String
 });
@@ -49,6 +58,9 @@ userSchema.methods.generateJwt = function(){
        _id: this._id,
         email: this.email,
         nombre: this.nombre,
+        nombreUsuario: this.nombreUsuario,
+        apellidoPaterno: this.apellidoPaterno,
+        apellidoMaterno: this.apellidoMaterno,
         exp: parseInt(expiry.getTime() / 1000)
     },"MY_SECRET");
 };

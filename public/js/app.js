@@ -2,9 +2,9 @@ angular.module('sampleApp', [
     'ngRoute',
     'appRoutes',
     'NerdCtrl',
-    'NerdService',
+
     'GeekCtrl',
-    'GeekService',
+
     'ngAria',
     'ngMaterial',
     'ngAnimate',
@@ -12,6 +12,7 @@ angular.module('sampleApp', [
     .run(function($rootScope) {
         $rootScope.page = "";
         $rootScope.background = "";
+        $rootScope.isLoggedIn = false;
     })
     .config(function($mdThemingProvider){
         $mdThemingProvider.theme('docs-mx', 'default')

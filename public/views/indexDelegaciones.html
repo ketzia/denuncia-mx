@@ -1,0 +1,37 @@
+<!--
+<div class="row pt40">
+    <div class="container">
+        <h1>Delegaciones</h1>
+        <p ng-repeat="delegacion in vm.delegaciones" style="display: inline;">
+            <b>{{delegacion.nombre}}</b>
+        </p>
+    </div>
+</div>
+-->
+
+<div ng-cloak>
+    <md-content layout-padding ng-style="{'background': 'white'}">
+        <md-grid-list
+                md-cols-gt-md="5" md-cols="5" md-cols-md="3"
+                md-row-height-gt-md="1:1" md-row-height="4:3"
+                md-gutter-gt-md="1px" md-gutter-md="1px" md-gutter="1px" ng-style="{'background': 'white'}">
+            <md-grid-tile ng-repeat="tile in vm.delegaciones" ng-style="{'background': 'white'}" md-colspan-gt-sm="1" md-rowspan-gt-sm="1">
+                <md-card  md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Card with image</span>
+                            <span class="md-subhead">Large</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div class="md-media-lg card-media"></div>
+                        </md-card-title-media>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button>Action 1</md-button>
+                        <md-button>Action 2</md-button>
+                    </md-card-actions>
+                </md-card>
+            </md-grid-tile>
+        </md-grid-list>
+    </md-content>
+</div>

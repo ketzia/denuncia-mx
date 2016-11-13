@@ -1,7 +1,7 @@
 angular.module('sampleApp').controller('RegisterCtrl', registerCtrl);
-registerCtrl.$inject = ['$http','$rootScope','authentication','$mdDialog'];
+registerCtrl.$inject = ['$http','$rootScope','authentication','$mdDialog','data'];
 
-function registerCtrl($http,$rootScope,authentication,$mdDialog){
+function registerCtrl($http,$rootScope,authentication,$mdDialog,data){
     var vm = this;
 
     vm.credentials = {
@@ -10,11 +10,18 @@ function registerCtrl($http,$rootScope,authentication,$mdDialog){
         apellidoMaterno: "",
         nombreUsuario: "",
         password :"",
-        email: ""
+        email: "",
+        delegacion: ""
     };
 
+    // Obtener delegaciones usando el servicio de datos
+    data.obtenerDelegaciones()
+        .then(function(res){
+            vm.delegaciones = res.data;
+        });
+
+
     vm.onSubmit = function(){
-        //console.log(vm.credentials);
         if(vm.credentials.password != "" && vm.credentials.nombre != "" && vm.credentials.apellidoPaterno != "" && vm.credentials.email != "" && vm.credentials.nombreUsuario != "") {
             authentication.register(vm.credentials)
                 .error(function (err) {

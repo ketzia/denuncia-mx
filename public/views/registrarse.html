@@ -1,4 +1,4 @@
-<img class="fondoRegistro" src="img/mariachi.jpg">
+<img class="fondoRegistro" src="img/desfile.jpg">
 <div class="container pt40">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -68,6 +68,21 @@
                                         </div>
                                     </div>
                                 </md-input-container>
+
+                                <!-- Delegacion -->
+                                <md-input-container >
+                                    <label>Delegacion</label>
+                                    <md-select ng-model="vm.credentials.delegacion" name="delegacion" required>
+                                        <md-option><em>Selecciona tu delegacion</em></md-option>
+                                        <md-option ng-repeat="delegacion in vm.delegaciones | orderBy: vm.delegaciones.nombre" ng-value="delegacion._id">
+                                            {{delegacion.nombre}}
+                                        </md-option>
+                                    </md-select>
+                                    <div ng-messages="registro.delegacion.$error">
+                                        <div ng-message="required">Escoge una delegación</div>
+                                    </div>
+                                </md-input-container>
+                                <!-- Delegacion -->
 
                                 <div>
                                     <button type="submit" ng-click="vm.onSubmit()" class="btn btn-lg btn-filled">Registrar</button>

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
     <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/theme-red.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
     <!-- END CSS -->
 
@@ -26,7 +26,6 @@
     <script src="js/external/jquery.min.js"></script>
     <script src="js/external/bootstrap.min.js"></script>
     <script src="js/external/flexslider.min.js"></script>
-    <script src="js/external/parallax.js"></script>
     <script src="js/external/scripts.js"></script>
 
 	<!-- JS -->
@@ -45,21 +44,19 @@
 	<script src="js/controllers/MainCtrl.js"></script>
 	<script src="js/controllers/NerdCtrl.js"></script>
     <script src="js/controllers/HomeCtrl.js"></script>
-
-
-
-	<script src="js/services/NerdService.js"></script>
 	<script src="js/controllers/GeekCtrl.js"></script>
-	<script src="js/services/GeekService.js"></script>
 	<script src="js/controllers/RegisterCtrl.js"></script>
     <script src="js/controllers/LoginCtrl.js"></script>
     <script src="js/controllers/ProfileCtrl.js"></script>
+    <script src="js/controllers/LogoutCtrl.js"></script>
+    <script src="js/controllers/IndexDelegacionesCtrl.js"></script>
 	<script src="js/appRoutes.js"></script>
 
     <script src="js/services/AuthService.js"></script>
+    <script src="js/services/DataService.js"></script>
 
 </head>
-    <body ng-app="sampleApp" class="{{$rootScope.background}}">
+    <body ng-app="sampleApp" class="{{$rootScope.background}}" ng-controller="MainCtrl">
         <div class="nav-container">
             <nav>
                 <div class="nav-bar text-center">
@@ -77,14 +74,20 @@
                         </ul>
                     </div>
                     <div class="col-sm-12 col-md-5 pb-xs-24">
-                        <ul class="menu">
+
+                        <ul class="menu" ng-if="$root.isLoggedIn == false">
                             <li><a href="/registrarse">Registrate </a></li>
-                            <li><a href="#">Inicia sesión&nbsp;</a>
+                            <li><a href="/login">Inicia sesión&nbsp;</a></li>
+                        </ul>
+
+                        <ul class="menu" ng-if="$root.isLoggedIn == true">
+                            <li><a href="/perfil">Perfil</a>
                                 <ul>
-                                    <li><a href="#">Single</a></li>
+                                    <li><a href="/logout">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
+
                     </div>
                 </div>
                 <div class="module widget-handle mobile-toggle right visible-sm visible-xs absolute-xs">

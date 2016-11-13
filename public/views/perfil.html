@@ -1,1 +1,15 @@
-<h1>Bienvenido a tu perfil, {{vm.usuario.nombre}}</h1>
+<div class="row pt40">
+    <div class="container">
+        <div class="col-md-4">
+            <h3>Bienvenido</h3>
+            <hr>
+            <h5>Datos:</h5>
+            <h6>Nombre: {{vm.usuario.nombre}} {{vm.usuario.apellidoPaterno}} {{vm.usuario.apellidoMaterno}}</h6>
+            <h6>Email: {{vm.usuario.email}}</h6>
+            <h6>Username: {{vm.usuario.nombreUsuario}}</h6>
+        </div>
+        <div class="col-md-8">
+            Aquí va a ir el newsfeed
+        </div>
+    </div>
+</div>

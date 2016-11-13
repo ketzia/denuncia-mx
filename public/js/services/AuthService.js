@@ -1,9 +1,9 @@
 angular
     .module('sampleApp')
     .service('authentication',authentication);
-authentication.$inject= ['$http','$window'];
+authentication.$inject= ['$http','$window','$rootScope'];
 
-function authentication($http,$window){
+function authentication($http,$window,$rootScope){
 
     var saveToken = function(token){
         $window.localStorage['mean-token'] = token;
@@ -24,11 +24,13 @@ function authentication($http,$window){
       return $http.post('/api/user/login',user)
           .success(function(data){
              saveToken(data.token);
+              $rootScope.isLoggedIn=true;
           });
     };
 
-    logout = function(user){
+    logout = function(){
         $window.localStorage.removeItem('mean-token');
+        $rootScope.isLoggedIn=false;
     };
 
     var isLoggedIn = function(){
@@ -53,7 +55,10 @@ function authentication($http,$window){
             return{
                 id: payload._id,
                 email: payload.email,
-                nombre: payload.nombre
+                nombre: payload.nombre,
+                nombreUsuario: payload.nombreUsuario,
+                apellidoPaterno: payload.apellidoPaterno,
+                apellidoMaterno: payload.apellidoMaterno
             };
         }
     };

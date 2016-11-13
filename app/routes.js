@@ -1,10 +1,12 @@
 var User = require('./models/User');
+var Delegacion = require('./models/Delegacion');
+
 var passport = require('passport');
 
 
 module.exports = function(app) {
     // API v1 - Denuncia-mx
-    // template -> /api/route
+    // template URL -> /api/route
 
     app.get('/api/users', function(req,res){
         User.find({},function(err,data){
@@ -13,8 +15,19 @@ module.exports = function(app) {
             }else{
                 res.status(200).json(data);
             }
+        }).populate('delegacion');
+    });
+
+    app.get('/api/delegaciones', function(req,res){
+        Delegacion.find({},function(err,data){
+           if(err){
+                res.status(500).json(err);
+           }else{
+               res.status(200).json(data);
+           }
         });
     });
+
 
     app.post('/api/user/register', function(req,res){
         var user = new User();
@@ -23,6 +36,7 @@ module.exports = function(app) {
         user.apellidoMaterno = req.body.apellidoMaterno;
         user.nombreUsuario = req.body.nombreUsuario;
         user.email = req.body.email;
+        user.delegacion = req.body.delegacion;
         user.setPassword(req.body.password);
 
         user.save(function(err){

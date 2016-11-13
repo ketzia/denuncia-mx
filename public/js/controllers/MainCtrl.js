@@ -1,9 +1,14 @@
 angular.module('sampleApp').controller('MainCtrl', mainCtrl);
-mainCtrl.$inject = ['$location'];
+mainCtrl.$inject = ['$location','$rootScope','authentication'];
 
-function mainCtrl($location){
+function mainCtrl($location,$rootScope,authentication){
 	var vm = this;
-	vm.name="Ernesto";
+
+	if(authentication.isLoggedIn()){
+		$rootScope.isLoggedIn = true;
+	}else{
+		$rootScope.isLoggedIn = false;
+	}
 
 }
 
