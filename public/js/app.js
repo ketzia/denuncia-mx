@@ -2,9 +2,7 @@ angular.module('sampleApp', [
     'ngRoute',
     'appRoutes',
     'NerdCtrl',
-
     'GeekCtrl',
-
     'ngAria',
     'ngMaterial',
     'ngAnimate',
