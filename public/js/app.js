@@ -7,10 +7,15 @@ angular.module('sampleApp', [
     'ngMaterial',
     'ngAnimate',
     'ngMessages'])
-    .run(function($rootScope) {
+    .run(function($rootScope,data) {
         $rootScope.page = "";
         $rootScope.background = "";
         $rootScope.isLoggedIn = false;
+
+        data.obtenerDelegaciones()
+            .then(function(res){
+                $rootScope.delegaciones = res.data;
+            });
     })
     .config(function($mdThemingProvider){
         $mdThemingProvider.theme('docs-mx', 'default')
