@@ -112,4 +112,4 @@ db.delegaciones.insert([{
     telefonoProteccionCivil: 56757020,
     domicilio: "Gladiolas No. 161, Col. Barrio San Pedro, Xochimilco, C.P. 16090."
   }
-])
+]);

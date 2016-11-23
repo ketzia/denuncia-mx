@@ -15,6 +15,12 @@
     box-shadow: rgba(0,0,0,0.2) 10px 10px 10px;
 }
 
+.tiempoRealDelegacion{
+    color: #fff !important;
+    background-color: #F44336 !important;
+    border: none !important;
+    border-radius: 0px !important;
+}
 
 .fondoRegistro {
     min-height: 100%;
@@ -37,5 +43,6 @@
         margin-left: -512px;
     }
 }
+
 
 

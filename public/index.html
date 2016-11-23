@@ -50,6 +50,7 @@
     <script src="js/controllers/ProfileCtrl.js"></script>
     <script src="js/controllers/LogoutCtrl.js"></script>
     <script src="js/controllers/IndexDelegacionesCtrl.js"></script>
+    <script src="js/controllers/delegacionCtrl.js"></script>
 	<script src="js/appRoutes.js"></script>
 
     <script src="js/services/AuthService.js"></script>
@@ -81,6 +82,7 @@
                         </ul>
 
                         <ul class="menu" ng-if="$root.isLoggedIn == true">
+                            <li><a href="/delegaciones">Delegaciones</a></li>
                             <li><a href="/perfil">Perfil</a>
                                 <ul>
                                     <li><a href="/logout">Logout</a></li>

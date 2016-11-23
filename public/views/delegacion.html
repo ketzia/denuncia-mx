@@ -1,0 +1,190 @@
+<div layout="column"  ng-cloak>
+    <div layout="row" flex>
+        <!-- Left sidebar -->
+        <md-sidenav
+            class="md-sidenav-left"
+            md-component-id="left"
+            md-is-locked-open="$mdMedia('gt-xs')"
+            md-whiteframe="4"
+        >
+            <!-- Title -->
+            <md-toolbar md-theme="docs-mx">
+                <h1 class="md-toolbar-tools" style="color:white">{{vm.delegacion.nombre}}</h1>
+            </md-toolbar>
+            <!-- End title -->
+
+            <!-- Content inside the sidebar -->
+            <md-content layout-padding>
+                <p>
+                    <b>Teléfono delegación: </b>{{vm.delegacion.telefonoDelegacion}}
+                    <br>
+                    <b>Teléfono Servicios: </b>{{vm.delegacion.telefonoServicios}}
+                    <br>
+                    <b>Teléfono Seguridad: </b>{{vm.delegacion.telefonoSeguridad}}
+                    <br>
+                    <b>Protección Civil: </b>{{vm.delegacion.telefonoProteccionCivil}}
+                </p>
+
+                <hr style="margin-bottom: 0px">
+
+                <p>
+                    {{vm.delegacion.domicilio}}
+                </p>
+
+            </md-content>
+            <!-- End Content inside the sidebar -->
+        </md-sidenav>
+        <!-- End Left sidebar -->
+
+        <!-- Contenido dentro de el panel -->
+        <md-content flex layout-padding>
+            <div class="row">
+                <div class="col-xs-4">
+                    <h4>Newsfeed </h4>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-4">
+                    <div class="panel panel-default sombra">
+                        <div class="panel-heading text-center tiempoRealDelegacion">Denuncias en Tiempo Real</div>
+                        <div class="panel-body">
+
+                            <section style="padding: 0px;">
+                                <md-progress-linear md-mode="indeterminate" md-theme="siniestros-mx"></md-progress-linear>
+                                <md-list layout-padding>
+                                    <md-list-item class="md-3-line" ng-repeat="siniestro in vm.siniestros">
+                                        <!--<img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">-->
+                                        <img class="md-avatar" ng-src="http://www.garuyo.com/sites/default/files/styles/large/public/images/2015/09/siniestro-2-critica-resena_137028.jpg_628115285.jpg?itok=7jVmFpio" >
+                                        <div class="md-list-item-text">
+                                            <h3>{{siniestro.nombre}}</h3>
+                                            <h4>{{siniestro.domicilio}}</h4>
+                                            <p>
+                                                {{siniestro.descripcion}}
+                                            </p>
+                                        </div>
+                                    </md-list-item>
+                                </md-list>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Nuevas Denuncias</div>
+                        <div class="panel-body">
+                            Panel Content
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Nuevas Denuncias</div>
+                        <div class="panel-body">
+                            Panel Content
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div layout="column" layout-align="top center">
+
+
+                <div>
+                    <md-button ng-click="vm.toggleRight()" ng-hide="vm.isOpenRight()" class="md-raised md-primary">
+                        Nueva publicación
+                    </md-button>
+                    <md-button ng-click="vm.toggleLeft()" class="md-raised md-primary" hide-gt-md>
+                        Toggle left
+                    </md-button>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div flex></div>
+        </md-content>
+        <!-- Termina contenido dentro del panel -->
+
+        <!-- Right sidenav -->
+        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+            <md-toolbar md-theme="docs-mx">
+                <h1 class="md-toolbar-tools" style="color:white">Nueva publicación</h1>
+            </md-toolbar>
+
+            <md-content layout-padding md-theme="docs-mx">
+
+                <form name="registro" novalidate>
+
+                    <!-- Fecha del suceso -->
+                    <md-input-container >
+                        <md-datepicker ng-model="vm.siniestro.fechaIncidente" md-placeholder="Fecha suceso">
+                        </md-datepicker>
+                    </md-input-container>
+                    <!-- Termina fecha del suceso -->
+
+                    <!-- Nombre -->
+                    <md-input-container class="md-block">
+                        <label>Nombre Siniestro</label>
+                        <input required name="nombre" ng-model="vm.siniestro.nombre">
+                        <div ng-messages="registro.nombre.$error">
+                            <div ng-message="required">Ingresa el nombre del siniestro</div>
+                        </div>
+                    </md-input-container>
+                    <!-- Termina nombre -->
+
+                    <!-- Descripcion -->
+                    <md-input-container class="md-block">
+                        <label>Descripcion</label>
+                        <textarea required md-maxlength="300" rows="5" name="descripcion" ng-model="vm.siniestro.descripcion">
+                        </textarea>
+                        <div ng-messages="registro.descripcion.$error">
+                            <div ng-message="required">Ingresa la descripcion del siniestro</div>
+                            <div ng-message="md-maxlength">Has superado el limite de caracteres, acorta tu descripción.</div>
+                        </div>
+                    </md-input-container>
+                    <!-- Termina Descripcion -->
+
+                    <!-- Domicilio -->
+                    <md-input-container class="md-block">
+                        <label>Lugar donde ocurrio el hecho</label>
+                        <textarea required md-maxlength="300" rows="3" name="domicilio" ng-model="vm.siniestro.domicilio">
+                        </textarea>
+                        <div ng-messages="registro.domicilio.$error">
+                            <div ng-message="required">Ingresa el domicilio en donde ocurrio el siniestro</div>
+                            <div ng-message="md-maxlength">Has superado el limite de caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <!-- Termina Domicilio -->
+
+                    <!-- Delegacion -->
+                    <md-input-container >
+                        <label>Categoría</label>
+                        <md-select ng-model="vm.siniestro.categoria" name="categoria" required>
+                            <md-option><em>Selecciona la categoría</em></md-option>
+                            <md-option ng-repeat="categoria in vm.categorias | orderBy: vm.categorias.nombre" ng-value="categoria._id">
+                                {{categoria.nombre}}
+                            </md-option>
+                        </md-select>
+                        <div ng-messages="registro.categoria.$error">
+                            <div ng-message="required">Escoge una categoría</div>
+                        </div>
+                    </md-input-container>
+                    <!-- Delegacion -->
+
+                    <div>
+                        <md-button ng-click="vm.denunciar()" class="md-raised md-primary">
+                            Guardar
+                        </md-button>
+                    </div>
+
+                </form>
+            </md-content>
+        </md-sidenav>
+
+    </div>
+</div>
+
+
+

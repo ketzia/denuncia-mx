@@ -39,6 +39,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controllerAs: 'vm'
 		})
 
+		.when('/delegacion/:nombre',{
+			templateUrl: 'views/delegacion.html',
+			controller: 'delegacionCtrl',
+			controllerAs: 'vm'
+		})
 
 		.when('/nerds', {
 			templateUrl: 'views/nerd.html',

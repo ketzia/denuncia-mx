@@ -9,7 +9,22 @@ function data($http,$window,$rootScope){
         return $http.get('/api/delegaciones');
     };
 
+    var obtenerCategorias = function(){
+        return $http.get('/api/categorias');
+    };
+
+    obtenerSiniestroPorDelegacion = function(id){
+        return $http.get('/api/siniestro/delegacion/'+id);
+    };
+
+    registrarSiniestro = function(siniestro){
+        return $http.post('/api/siniestro/register',siniestro);
+    };
+
     return{
-        obtenerDelegaciones : obtenerDelegaciones
+        obtenerDelegaciones : obtenerDelegaciones,
+        obtenerCategorias : obtenerCategorias,
+        registrarSiniestro : registrarSiniestro,
+        obtenerSiniestroPorDelegacion : obtenerSiniestroPorDelegacion
     }
 }

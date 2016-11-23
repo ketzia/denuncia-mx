@@ -27,7 +27,8 @@ var siniestroSchema = new mongoose.Schema({
         required: true
     },
     fechaCreacion :{
-        type: { type: Date, default: Date.now },
+        type: Date,
+        default: Date.now,
         required: true
     },
     fechaIncidente :{
@@ -35,4 +36,5 @@ var siniestroSchema = new mongoose.Schema({
         required: true
     }
 });
+
 module.exports = mongoose.model('Siniestro',siniestroSchema);

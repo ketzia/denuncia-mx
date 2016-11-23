@@ -1,5 +1,5 @@
 angular.module('sampleApp').controller('RegisterCtrl', registerCtrl);
-registerCtrl.$inject = ['$http','$rootScope','authentication','$mdDialog','data'];
+    registerCtrl.$inject = ['$http','$rootScope','authentication','$mdDialog','data'];
 
 function registerCtrl($http,$rootScope,authentication,$mdDialog,data){
     var vm = this;
