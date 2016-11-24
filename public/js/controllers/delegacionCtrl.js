@@ -1,7 +1,7 @@
 angular.module('sampleApp').controller('delegacionCtrl', delegacionCtrl);
-delegacionCtrl.$inject = ['authentication','data','$rootScope','$routeParams','$mdDialog', '$mdSidenav','$interval','$mdToast'];
+delegacionCtrl.$inject = ['authentication','data','d3service','$rootScope','$routeParams','$mdDialog', '$mdSidenav','$interval','$mdToast'];
 
-function delegacionCtrl(authentication,data,$rootScope,$routeParams,$mdDialog,$mdSidenav,$interval,$mdToast){
+function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$mdDialog,$mdSidenav,$interval,$mdToast){
     var vm = this;
 
     angular.forEach($rootScope.delegaciones, function(value,key){
@@ -9,16 +9,51 @@ function delegacionCtrl(authentication,data,$rootScope,$routeParams,$mdDialog,$m
         var nombre2 = $routeParams.nombre.toLowerCase().split(" ");
         if(nombre1[0]==nombre2[0]){
             vm.delegacion = value;
+            d3service.d3DonutCrimenDelegacion(vm.delegacion._id)
+                .then(function(res){
+                    vm.data = res.data;
+                });
+
             data.obtenerSiniestroPorDelegacion(vm.delegacion._id)
                 .then(
                     function(res){
                         vm.siniestros = res.data;
-                        console.log(vm.siniestros);
+                        //console.log(vm.siniestros);
                     }
                 )
             ;
         }
     });
+
+
+
+    vm.options = {
+        chart: {
+            type: 'pieChart',
+            height: 280,
+            width:280,
+            donut: true,
+            x: function(d){return d.llave;},
+            y: function(d){return d.valor;},
+            showLabels: false,
+
+            pie: {
+                startAngle: function(d) { return d.startAngle/2 -Math.PI/2 },
+                endAngle: function(d) { return d.endAngle/2 -Math.PI/2 }
+            },
+            duration: 500,
+            legend: {
+                margin: {
+                    top: 5,
+                    right: 0,
+                    bottom: 5,
+                    left: 0
+                }
+            }
+        }
+    };
+
+
 
 
 

@@ -14,7 +14,7 @@
             <!-- End title -->
 
             <!-- Content inside the sidebar -->
-            <md-content layout-padding>
+            <md-content layout-padding style="overflow-x: hidden">
                 <p>
                     <b>Teléfono delegación: </b>{{vm.delegacion.telefonoDelegacion}}
                     <br>
@@ -31,6 +31,12 @@
                     {{vm.delegacion.domicilio}}
                 </p>
 
+                <hr>
+
+                <nvd3 options="vm.options" data="vm.data" style="z-index: 100"></nvd3>
+
+
+
             </md-content>
             <!-- End Content inside the sidebar -->
         </md-sidenav>
@@ -46,7 +52,7 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-4">
+                <div class="col-md-4">
                     <div class="panel panel-default sombra">
                         <div class="panel-heading text-center tiempoRealDelegacion">Denuncias en Tiempo Real</div>
                         <div class="panel-body">
@@ -70,19 +76,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Nuevas Denuncias</div>
-                        <div class="panel-body">
-                            Panel Content
-                        </div>
-                    </div>
+                <div class="col-md-4">
+                    <md-card>
+                        <img ng-src="http://www.shiftcomm.com/wp-content/uploads/2014/07/announcement.jpg" class="md-card-image" alt="Washed Out">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline text-center">Anuncios Delegación</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p>
+                                The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                                two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                            </p>
+                            <p>
+                                The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                                two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                            </p>
+                            <p>
+                                The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                                two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                            </p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button>Action 1</md-button>
+                            <md-button>Action 2</md-button>
+                        </md-card-actions>
+                    </md-card>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">Nuevas Denuncias</div>
                         <div class="panel-body">
-                            Panel Content
                         </div>
                     </div>
                 </div>

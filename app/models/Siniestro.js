@@ -19,7 +19,7 @@ var siniestroSchema = new mongoose.Schema({
         required: true
     },
     categoria: {
-        type:  Schema.Types.ObjectId, ref: 'Category',
+        type:  Schema.Types.ObjectId, ref: 'Categoria',
         required: true
     },
     domicilio: {

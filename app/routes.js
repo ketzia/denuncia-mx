@@ -1,7 +1,8 @@
 var User = require('./models/User');
 var Delegacion = require('./models/Delegacion');
-var Categoria = require('./models/Categoria');
 var Siniestro = require('./models/Siniestro');
+var Categoria = require('./models/Categoria');
+var Anuncio = require('./models/Anuncio');
 
 var passport = require('passport');
 
@@ -51,6 +52,41 @@ module.exports = function(app) {
            }else{
                 res.status(200).json(data);
            }
+        });
+    });
+
+    app.post('/api/anuncio/register', function(req,res){
+        var anuncio = new Anuncio();
+        anuncio.titulo = req.body.titulo;
+        anuncio.contenido = req.body.contenido;
+        anuncio.delegacion = req.body.delegacion;
+
+        anuncio.save(function(err){
+            if(err){
+                res.status(500).json(err);
+            }else{
+                res.status(200).json({"message":"Anuncio registrado"});
+            }
+        });
+    });
+
+    app.get('/api/anuncios', function(req,res){
+        Anuncio.find({},function(err,data){
+           if(err){
+               res.status(500).json(err);
+           }else{
+               res.status(200).json(data);
+           }
+        });
+    });
+
+    app.get('/api/anuncio/delegacion/:id', function(req,res){
+        Anuncio.find({delegacion:req.params.id},function (err,data) {
+            if(err){
+                res.status(500).json(err);
+            }else{
+                res.status(200).json(data);
+            }
         });
     });
 
@@ -137,6 +173,39 @@ module.exports = function(app) {
             }
         })(req,res);
     });
+
+
+    app.get('/api/d3/donut/delegacion/:id/siniestro',function(req,res){
+        Siniestro.find({delegacion: req.params.id},function(err,data){
+           if(err){
+               res.status(500).json(err);
+           }else{
+               var siniestros = data;
+               var cuentas = [];
+               var datos = [];
+               for(var i=0;i<siniestros.length;i++){
+                   var siniestro = siniestros[i];
+                   if(!cuentas[siniestro.categoria.nombre]){
+                       cuentas[siniestro.categoria.nombre]=1;
+                   }else{
+                       cuentas[siniestro.categoria.nombre]++;
+                   }
+               }
+               for (var k in cuentas){
+                   if (cuentas.hasOwnProperty(k)) {
+                       //console.log("Key is " + k + ", value is" + cuentas[k]);
+                       var dato = {llave: "", valor: 0};
+                       dato.llave = k;
+                       dato.valor = cuentas[k];
+                       datos.push(dato);
+                   }
+               }
+               console.log(datos);
+               res.status(200).json(datos);
+           }
+        }).populate('categoria');
+    });
+
 
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html');

@@ -17,6 +17,10 @@ function data($http,$window,$rootScope){
         return $http.get('/api/siniestro/delegacion/'+id);
     };
 
+    obtenerAnuncionPorDelegacion = function(id){
+        return $http.get('/api/siniestro/anuncio/'+id);
+    };
+
     registrarSiniestro = function(siniestro){
         return $http.post('/api/siniestro/register',siniestro);
     };

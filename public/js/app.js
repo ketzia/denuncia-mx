@@ -6,7 +6,8 @@ angular.module('sampleApp', [
     'ngAria',
     'ngMaterial',
     'ngAnimate',
-    'ngMessages'])
+    'ngMessages',
+    'nvd3'])
     .run(function($rootScope,data) {
         $rootScope.page = "";
         $rootScope.background = "";
