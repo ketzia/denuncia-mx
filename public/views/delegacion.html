@@ -24,19 +24,10 @@
                     <br>
                     <b>Protección Civil: </b>{{vm.delegacion.telefonoProteccionCivil}}
                 </p>
-
                 <hr style="margin-bottom: 0px">
-
                 <p>
                     {{vm.delegacion.domicilio}}
                 </p>
-
-                <hr>
-
-                <nvd3 options="vm.options" data="vm.data" style="z-index: 100"></nvd3>
-
-
-
             </md-content>
             <!-- End Content inside the sidebar -->
         </md-sidenav>
@@ -76,8 +67,9 @@
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="col-md-4">
-                    <md-card>
+                    <md-card class="sombra">
                         <img ng-src="http://www.shiftcomm.com/wp-content/uploads/2014/07/announcement.jpg" class="md-card-image" alt="Washed Out">
                         <md-card-title>
                             <md-card-title-text>
@@ -104,10 +96,15 @@
                         </md-card-actions>
                     </md-card>
                 </div>
-                <div class="col-md-4">
+                -->
+
+
+
+                <div class="col-md-8">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Nuevas Denuncias</div>
+                        <div class="panel-heading">Estadisticas</div>
                         <div class="panel-body">
+                            <nvd3 data="vm.data" options="vm.options" events="events"></nvd3>
                         </div>
                     </div>
                 </div>

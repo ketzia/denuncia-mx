@@ -45,4 +45,13 @@
 }
 
 
+.spanChart{
+    width: -moz-calc(100% - 370px);
+    width: -webkit-calc(100% - 370px);
+    width: calc(100% - 370px);
+    padding-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
 

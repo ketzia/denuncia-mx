@@ -200,7 +200,6 @@ module.exports = function(app) {
                        datos.push(dato);
                    }
                }
-               console.log(datos);
                res.status(200).json(datos);
            }
         }).populate('categoria');

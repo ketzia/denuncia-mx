@@ -1,14 +1,16 @@
 angular.module('sampleApp').controller('delegacionCtrl', delegacionCtrl);
-delegacionCtrl.$inject = ['authentication','data','d3service','$rootScope','$routeParams','$mdDialog', '$mdSidenav','$interval','$mdToast'];
+delegacionCtrl.$inject = ['authentication','data','d3service','$rootScope','$routeParams','$mdDialog', '$mdSidenav','$interval','$mdToast','$scope','$timeout'];
 
-function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$mdDialog,$mdSidenav,$interval,$mdToast){
+function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$mdDialog,$mdSidenav,$interval,$mdToast,$scope,$timeout){
     var vm = this;
+
 
     angular.forEach($rootScope.delegaciones, function(value,key){
         var nombre1 = value.nombre.toLowerCase().split(" ");
         var nombre2 = $routeParams.nombre.toLowerCase().split(" ");
         if(nombre1[0]==nombre2[0]){
             vm.delegacion = value;
+
             d3service.d3DonutCrimenDelegacion(vm.delegacion._id)
                 .then(function(res){
                     vm.data = res.data;
@@ -18,20 +20,15 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
                 .then(
                     function(res){
                         vm.siniestros = res.data;
-                        //console.log(vm.siniestros);
                     }
                 )
             ;
         }
     });
-
-
-
     vm.options = {
         chart: {
             type: 'pieChart',
-            height: 280,
-            width:280,
+            height:350,
             donut: true,
             x: function(d){return d.llave;},
             y: function(d){return d.valor;},
@@ -39,26 +36,22 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
 
             pie: {
                 startAngle: function(d) { return d.startAngle/2 -Math.PI/2 },
-                endAngle: function(d) { return d.endAngle/2 -Math.PI/2 }
+                endAngle: function(d) { return d.endAngle/2 -Math.PI/2 },
+                width: 500,
+                height: 500
             },
             duration: 500,
             legend: {
                 margin: {
                     top: 5,
                     right: 0,
-                    bottom: 5,
+                    bottom: 0,
                     left: 0
                 }
             }
         }
     };
-
-
-
-
-
     vm.categorias = $rootScope.categorias;
-
     vm.siniestro = {
         nombre: "",
         descripcion: "",
@@ -70,26 +63,25 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
         fechaIncidente: null
     };
 
+    // Intervalo de actualizacion de los datos
     $interval(function() {
-        //console.log("hola");
         data.obtenerSiniestroPorDelegacion(vm.delegacion._id)
             .then(
                 function(res){
                     vm.siniestros = res.data;
-                    //console.log(vm.siniestros);
-                }
-            )
-        ;
+            });
+        d3service.d3DonutCrimenDelegacion(vm.delegacion._id)
+            .then(function(res){
+                vm.data = res.data;
+            });
     }, 3000);
 
-
+    //Logica para denunciar
     vm.denunciar = function(){
         if(vm.siniestro.nombre != "" && vm.siniestro.descripcion != "" && vm.siniestro.domicilio != "" && vm.siniestro.fechaIncidente != "" && vm.siniestro.categoria != ""){
             vm.siniestro.delegacion = vm.delegacion._id;
             vm.siniestro.usuarioCreador = authentication.currentUser().id;
             vm.siniestro.fechaIncidente.toISOString();
-            //console.log(vm.siniestro);
-
             data.registrarSiniestro(vm.siniestro)
                 .error(function (err) {
                     $mdDialog.show($mdDialog.alert()
@@ -103,28 +95,14 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
                     );
                 })
                 .success(function () {
-                    /*
-                    $mdDialog.show($mdDialog.alert()
-                        .parent(angular.element('#contenedor'))
-                        .clickOutsideToClose(true)
-                        .title(' Éxito')
-                        .textContent('Denuncia exitosa')
-                        .ariaLabel('Alert Dialog Demo')
-                        .ok('Ok')
-                    );
-                    */
                     $mdToast.show(
                         $mdToast.simple()
                             .textContent('¡Denuncia exitosa!')
                             .position('top right')
                             .hideDelay(3000)
                     );
-
                     $mdSidenav('right').close();
-
                 });
-
-
         }else{
             $mdDialog.show($mdDialog.alert()
                 .parent(angular.element('#contenedor'))
@@ -137,13 +115,12 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
         }
     };
 
+    /* Cosas del panel */
     vm.toggleLeft = buildToggler('left');
     vm.toggleRight = buildToggler('right');
-
     vm.isOpenRight = function () {
         return $mdSidenav('right').isOpen();
     };
-
     function buildDelayedToggler(navID) {
             return debounce(function() {
                 // Component lookup should always be available since we are not using `ng-if`
@@ -167,7 +144,6 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
                 }, wait || 10);
             };
         }
-
     function buildToggler(navID) {
         return function() {
             if(authentication.isLoggedIn()){
@@ -184,13 +160,18 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
             }
         }
     }
-
-
-
     vm.close = function(){
-            $mdSidenav('right').close();
-        }
+        $mdSidenav('right').close();
+    }
 
+
+    $scope.$watch('fetching', function() {
+        if(!vm.fetching) {
+            $timeout(function() {
+                window.dispatchEvent(new Event('resize'));
+            }, 500);
+        }
+    });
 }
 
 
