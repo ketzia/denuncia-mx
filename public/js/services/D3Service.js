@@ -9,7 +9,12 @@ function d3service($http,$window,$rootScope){
         return $http.get('/api/d3/donut/delegacion/'+id+'/siniestro');
     };
 
+    d3BarCrimenDelegacion = function(id){
+        return $http.get('api/d3/bar/delegacion/'+id+'/siniestro');
+    };
+
     return{
-        d3DonutCrimenDelegacion : d3DonutCrimenDelegacion
+        d3DonutCrimenDelegacion : d3DonutCrimenDelegacion,
+        d3BarCrimenDelegacion   : d3BarCrimenDelegacion
     }
 }

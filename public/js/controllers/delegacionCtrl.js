@@ -16,6 +16,16 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
                     vm.data = res.data;
                 });
 
+            d3service.d3BarCrimenDelegacion(vm.delegacion._id)
+                .then(function(res){
+                    vm.data2 = [
+                        {
+                            key: "Cumulative Return",
+                            values: res.data
+                        }
+                    ];
+                });
+
             data.obtenerSiniestroPorDelegacion(vm.delegacion._id)
                 .then(
                     function(res){
@@ -28,7 +38,7 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
     vm.options = {
         chart: {
             type: 'pieChart',
-            height:350,
+            height:500,
             donut: true,
             x: function(d){return d.llave;},
             y: function(d){return d.valor;},
@@ -37,8 +47,6 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
             pie: {
                 startAngle: function(d) { return d.startAngle/2 -Math.PI/2 },
                 endAngle: function(d) { return d.endAngle/2 -Math.PI/2 },
-                width: 500,
-                height: 500
             },
             duration: 500,
             legend: {
@@ -51,6 +59,36 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
             }
         }
     };
+
+    console.log(vm.dataBar);
+
+
+
+    vm.options2 = {
+        chart: {
+            type: 'discreteBarChart',
+            height: 450,
+            margin : {
+                top: 20,
+                right: 20,
+                bottom: 50,
+                left: 55
+            },
+            x: function(d){return d.llave;},
+            y: function(d){return d.valor;},
+            showValues: true,
+            duration: 500,
+            xAxis: {
+                axisLabel: 'Fecha'
+            },
+            yAxis: {
+                axisLabel: 'Denuncias',
+                axisLabelDistance: -10
+            }
+        }
+    };
+
+
     vm.categorias = $rootScope.categorias;
     vm.siniestro = {
         nombre: "",
@@ -73,6 +111,16 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
         d3service.d3DonutCrimenDelegacion(vm.delegacion._id)
             .then(function(res){
                 vm.data = res.data;
+            });
+
+        d3service.d3BarCrimenDelegacion(vm.delegacion._id)
+            .then(function(res){
+                vm.data2 = [
+                    {
+                        key: "Cumulative Return",
+                        values: res.data
+                    }
+                ];
             });
     }, 3000);
 

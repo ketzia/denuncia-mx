@@ -114,6 +114,16 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/api/siniestros',function(req,res){
+       Siniestro.find({},function(err,data){
+          if(err){
+              res.status(500).json(err);
+          }else{
+              res.status(200).json(data);
+          }
+       });
+    });
+
     app.post('/api/siniestro/register',function(req,res){
         var siniestro = new Siniestro();
         siniestro.nombre = req.body.nombre;
@@ -202,6 +212,44 @@ module.exports = function(app) {
                }
                res.status(200).json(datos);
            }
+        }).populate('categoria');
+    });
+
+    app.get('/api/d3/bar/delegacion/:id/siniestro',function(req,res){
+        Siniestro.find({delegacion: req.params.id},function(err,data){
+            if(err){
+                res.status(500).json(err);
+            }else{
+                var siniestros = data;
+                var cuentas = [];
+                var datos = [];
+
+                for(var i=0;i<siniestros.length;i++){
+                    var siniestro = siniestros[i];
+                    var fecha = new Date(siniestro.fechaIncidente);
+                    var stringfecha = fecha.getDate() + "-" + fecha.getMonth() + "-" +fecha.getFullYear();
+                    //console.log(stringfecha);
+                    if(!cuentas[stringfecha]){
+                        cuentas[stringfecha]=1;
+                    }else{
+                        cuentas[stringfecha]++;
+                    }
+                }
+
+                //console.log(cuentas);
+
+                for (var k in cuentas){
+                    if (cuentas.hasOwnProperty(k)) {
+                        //console.log("Key is " + k + ", value is" + cuentas[k]);
+                        var dato = {llave: "", valor: 0};
+                        dato.llave = k;
+                        dato.valor = cuentas[k];
+                        datos.push(dato);
+                    }
+                }
+
+                res.status(200).json(datos);
+            }
         }).populate('categoria');
     });
 

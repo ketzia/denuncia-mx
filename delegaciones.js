@@ -1,4 +1,4 @@
-db.delegaciones.insert([{
+db.delegacions.insert([{
     nombre: "Alvaro Obregon",
     telefonoDelegacion: 52766700,
     telefonoServicios: 52766823,

@@ -101,10 +101,20 @@
 
 
                 <div class="col-md-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Estadisticas</div>
+                    <div class="panel panel-default sombra">
+                        <div class="panel-heading text-center tiempoRealDelegacion">Estadisticas</div>
                         <div class="panel-body">
-                            <nvd3 data="vm.data" options="vm.options" events="events"></nvd3>
+                            <md-progress-linear md-mode="indeterminate" md-theme="siniestros-mx"></md-progress-linear>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <nvd3 data="vm.data" options="vm.options" events="events"></nvd3>
+                                </div>
+                                <div class="col-md-6">
+                                    <nvd3 data="vm.data2" options="vm.options2" events="events"></nvd3>
+                                </div>
+                            </div>
+
+                            <hr>
                         </div>
                     </div>
                 </div>
