@@ -61,10 +61,11 @@
                         </md-button>
                         <hr>
                         <md-list flex>
-                            <md-list-item class="md-3-line md-long-text" ng-repeat="comentario in vm.comentarios" ng-click="null">
+                            <md-list-item class="md-3-line md-long-text sombra" ng-repeat="comentario in vm.comentarios" ng-click="null" style="background-color: #00b3ee">
                                 <div class="md-list-item-text" layout="column">
-                                    <h3>{{ comentario.fechaCreacion }}</h3>
-                                    <p>{{ comentario.contenido }}</p>
+                                    <h3 style="color:white"><b>Fecha y hora:</b> {{ comentario.fechaCreacion }}</h3>
+                                    <h3 style="color:white"><b>Comentario:</b></h3>
+                                    <p style="color:white">{{ comentario.contenido }}</p>
                                 </div>
                             </md-list-item>
                         </md-list>
