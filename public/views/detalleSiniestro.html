@@ -15,9 +15,7 @@
 
             <!-- Content inside the sidebar -->
             <md-content layout-padding style="overflow-x: hidden">
-                <p>
-                    <b>Nombre: </b>{{vm.siniestro.nombre}}
-                </p>
+                <h4 class="text-center">{{vm.siniestro.nombre}}</h4>
             </md-content>
 
 
@@ -48,19 +46,29 @@
                         <br>
                         <br>
                         <h4>Imagenes:</h4>
-
                         <ng-gallery images="vm.images"></ng-gallery>
-
-
                     </md-content>
                 </md-tab>
                 <md-tab label="Comentarios">
                     <md-content class="md-padding">
-                        <h1 class="md-display-2">Tab One</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
-                            In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
-                        </p>
+                        <h1 class="md-display-2" style="margin-bottom: 0px">Comentarios</h1>
+                        <md-button class="md-raised md-primary" ng-click="vm.mostrarPopupComentario()">Nuevo comentario</md-button>
+                        <md-button class="md-raised md-warn">
+                            <md-tooltip>
+                                Tu mensaje será anonimo para el usuario creador
+                            </md-tooltip>
+                            Envíar mensaje privado
+                        </md-button>
+                        <hr>
+                        <md-list flex>
+                            <md-list-item class="md-3-line md-long-text" ng-repeat="comentario in vm.comentarios" ng-click="null">
+                                <div class="md-list-item-text" layout="column">
+                                    <h3>{{ comentario.fechaCreacion }}</h3>
+                                    <p>{{ comentario.contenido }}</p>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+
                     </md-content>
                 </md-tab>
             </md-tabs>

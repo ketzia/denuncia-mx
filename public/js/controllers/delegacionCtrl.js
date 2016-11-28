@@ -116,7 +116,7 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
     }, 3000);
     //Logica para denunciar
     vm.denunciar = function(){
-
+        console.log(vm.fotos);
         if(vm.siniestro.nombre != "" && vm.siniestro.descripcion != "" && vm.siniestro.domicilio != "" && vm.siniestro.fechaIncidente != "" && vm.siniestro.categoria != ""){
             vm.siniestro.delegacion = vm.delegacion._id;
             vm.siniestro.usuarioCreador = authentication.currentUser().id;

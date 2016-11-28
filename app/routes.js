@@ -241,7 +241,6 @@ module.exports = function(app) {
         comentario.contenido = req.body.contenido;
         comentario.usuarioCreador = req.body.usuarioCreador;
         comentario.siniestro = req.body.siniestro;
-        if(comentario.urlImagen) comentario.urlImagen = req.body.urlImagen;
 
         comentario.save(function(err){
             if(err){

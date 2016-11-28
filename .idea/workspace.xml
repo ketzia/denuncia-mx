@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c3348b5-6261-4c77-9f4a-e518927d856f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Comentario.js" afterPath="$PROJECT_DIR$/app/models/Comentario.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.js" afterPath="$PROJECT_DIR$/app/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/delegacionCtrl.js" afterPath="$PROJECT_DIR$/public/js/controllers/delegacionCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/detalleSiniestroCtrl.js" afterPath="$PROJECT_DIR$/public/js/controllers/detalleSiniestroCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/services/DataService.js" afterPath="$PROJECT_DIR$/public/js/services/DataService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/delegacion.html" afterPath="$PROJECT_DIR$/public/views/delegacion.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/detalleSiniestro.html" afterPath="$PROJECT_DIR$/public/views/detalleSiniestro.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/perfil.html" afterPath="$PROJECT_DIR$/public/views/perfil.html" />
     </list>
     <ignored path="denuncia-mx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,14 +33,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="delegacion.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/delegacion.html">
+      <file leaf-file-name="detalleSiniestroCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/controllers/detalleSiniestroCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="495">
+              <caret line="48" column="193" selection-start-line="48" selection-start-column="193" selection-end-line="48" selection-end-column="193" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -41,51 +46,51 @@
       <file leaf-file-name="delegacionCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/controllers/delegacionCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1212">
-              <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+            <state relative-caret-position="247">
+              <caret line="138" column="41" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="41" />
               <folding>
                 <element signature="e#1429#2074#0" expanded="false" />
                 <element signature="e#2094#2666#0" expanded="false" />
-                <element signature="e#3012#3631#0" expanded="false" />
-                <element signature="e#6321#6373#0" expanded="false" />
+                <element signature="e#6351#6403#0" expanded="false" />
                 <element signature="n#!!block;n#buildDelayedToggler#0;n#!!block;n#delegacionCtrl#0" expanded="false" />
                 <element signature="n#!!block;n#debounce#0;n#!!block;n#delegacionCtrl#0" expanded="false" />
                 <element signature="n#!!block;n#buildToggler#0;n#!!block;n#delegacionCtrl#0" expanded="false" />
-                <element signature="e#7837#7881#0" expanded="false" />
-                <element signature="e#7923#8081#0" expanded="false" />
+                <element signature="e#7867#7911#0" expanded="false" />
+                <element signature="e#7953#8111#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detalleSiniestroCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/controllers/detalleSiniestroCtrl.js">
+      <file leaf-file-name="detalleSiniestro.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/detalleSiniestro.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="17" column="68" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
+      <file leaf-file-name="Comentario.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Comentario.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="37" column="72" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
+            <state relative-caret-position="255">
+              <caret line="17" column="12" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nuevoComentario.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/nuevoComentario.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#div#0;n#md-toolbar#0;n#form#0;n#md-dialog#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-dialog-content#0;n#form#0;n#md-dialog#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -93,28 +98,18 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="199" column="27" selection-start-line="199" selection-start-column="27" selection-end-line="199" selection-end-column="27" />
+            <state relative-caret-position="337">
+              <caret line="254" column="13" selection-start-line="254" selection-start-column="13" selection-end-line="254" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="DataService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/services/DataService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Siniestro.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Siniestro.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="12" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="12" />
+            <state relative-caret-position="483">
+              <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -165,21 +160,22 @@
         <option value="$PROJECT_DIR$/app/models/User.js" />
         <option value="$PROJECT_DIR$/public/js/services/AuthService.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/ProfileCtrl.js" />
-        <option value="$PROJECT_DIR$/app/models/Comentario.js" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/js/appRoutes.js" />
-        <option value="$PROJECT_DIR$/public/js/services/DataService.js" />
-        <option value="$PROJECT_DIR$/public/views/perfil.html" />
-        <option value="$PROJECT_DIR$/public/views/detalleSiniestro.html" />
         <option value="$PROJECT_DIR$/app/models/Siniestro.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/js/app.js" />
-        <option value="$PROJECT_DIR$/public/js/controllers/delegacionCtrl.js" />
-        <option value="$PROJECT_DIR$/public/views/delegacion.html" />
-        <option value="$PROJECT_DIR$/public/js/controllers/detalleSiniestroCtrl.js" />
-        <option value="$PROJECT_DIR$/app/routes.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/public/views/perfil.html" />
+        <option value="$PROJECT_DIR$/public/views/delegacion.html" />
+        <option value="$PROJECT_DIR$/app/models/Comentario.js" />
+        <option value="$PROJECT_DIR$/public/views/nuevoComentario.html" />
+        <option value="$PROJECT_DIR$/app/routes.js" />
+        <option value="$PROJECT_DIR$/public/js/controllers/delegacionCtrl.js" />
+        <option value="$PROJECT_DIR$/public/js/services/DataService.js" />
+        <option value="$PROJECT_DIR$/public/js/controllers/detalleSiniestroCtrl.js" />
+        <option value="$PROJECT_DIR$/public/views/detalleSiniestro.html" />
       </list>
     </option>
   </component>
@@ -193,7 +189,6 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="9" />
     <option name="y" value="22" />
     <option name="width" value="1920" />
     <option name="height" value="1088" />
@@ -269,47 +264,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="denuncia-mx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="denuncia-mx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="denuncia-mx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="denuncia-mx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imagenesSiniestros" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -464,15 +419,15 @@
       <workItem from="1479909716360" duration="646000" />
       <workItem from="1479941520608" duration="8642000" />
       <workItem from="1479996356930" duration="16363000" />
-      <workItem from="1480283512220" duration="18074000" />
+      <workItem from="1480283512220" duration="25284000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165203000" />
+    <option name="totallyTimeSpent" value="172413000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="9" y="22" width="1920" height="1088" extended-state="0" />
+    <frame x="0" y="22" width="1920" height="1088" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21221696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -529,11 +484,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/bower_components/material-design-icons/action/drawable-hdpi/ic_track_changes_black_48dp.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/bower_components/material-design-icons/social/svg/production/ic_notifications_active_24px.svg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -639,13 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/indexDelegaciones.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Nerd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -713,17 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/registrarse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#md-content#0;n#form#0;n#md-content#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#md-content#0;n#form#0;n#md-content#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/delegaciones.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -764,14 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Comentario.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Delegacion.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -796,58 +720,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/services/DataService.js">
+    <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="49" column="46" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+        <state relative-caret-position="285">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/perfil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="116" column="132" selection-start-line="116" selection-start-column="132" selection-end-line="116" selection-end-column="132" />
+        <state relative-caret-position="555">
+          <caret line="116" column="111" selection-start-line="116" selection-start-column="111" selection-end-line="116" selection-end-column="111" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h1#0;n#md-toolbar#0;n#md-sidenav#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#hr#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#div#0;n#div#1;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#h3#0;n#div#0;n#md-list-item#0;n#md-list#0;n#section#0;n#div#1;n#div#0;n#div#0;n#div#1;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#section#0;n#div#1;n#div#0;n#div#1;n#div#1;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#a#0;n#h3#0;n#div#0;n#md-list-item#0;n#md-list#0;n#section#0;n#div#1;n#div#0;n#div#1;n#div#1;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/IndexDelegacionesCtrl.js">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/detalleSiniestro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="554">
+          <caret line="37" column="72" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h1#0;n#md-toolbar#0;n#md-sidenav#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#md-content#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,49 +756,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="37" column="72" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/detalleSiniestroCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="500">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/delegacion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/delegacionCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1212">
-          <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
-          <folding>
-            <element signature="e#1429#2074#0" expanded="false" />
-            <element signature="e#2094#2666#0" expanded="false" />
-            <element signature="e#3012#3631#0" expanded="false" />
-            <element signature="e#6321#6373#0" expanded="false" />
-            <element signature="n#!!block;n#buildDelayedToggler#0;n#!!block;n#delegacionCtrl#0" expanded="false" />
-            <element signature="n#!!block;n#debounce#0;n#!!block;n#delegacionCtrl#0" expanded="false" />
-            <element signature="n#!!block;n#buildToggler#0;n#!!block;n#delegacionCtrl#0" expanded="false" />
-            <element signature="e#7837#7881#0" expanded="false" />
-            <element signature="e#7923#8081#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -913,18 +772,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.js">
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/IndexDelegacionesCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="199" column="27" selection-start-line="199" selection-start-column="27" selection-end-line="199" selection-end-column="27" />
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/public/views/registrarse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+        <state relative-caret-position="384">
+          <caret line="90" column="35" selection-start-line="11" selection-start-column="28" selection-end-line="90" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/indexDelegaciones.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="8" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="254" column="13" selection-start-line="254" selection-start-column="13" selection-end-line="254" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/services/DataService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/nuevoComentario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#div#0;n#md-toolbar#0;n#form#0;n#md-dialog#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-dialog-content#0;n#form#0;n#md-dialog#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/delegacion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="164" column="41" selection-start-line="164" selection-start-column="41" selection-end-line="164" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#form#0;n#md-content#0;n#md-sidenav#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Comentario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/delegacionCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="138" column="41" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="41" />
+          <folding>
+            <element signature="e#1429#2074#0" expanded="false" />
+            <element signature="e#2094#2666#0" expanded="false" />
+            <element signature="e#6351#6403#0" expanded="false" />
+            <element signature="n#!!block;n#buildDelayedToggler#0;n#!!block;n#delegacionCtrl#0" expanded="false" />
+            <element signature="n#!!block;n#debounce#0;n#!!block;n#delegacionCtrl#0" expanded="false" />
+            <element signature="n#!!block;n#buildToggler#0;n#!!block;n#delegacionCtrl#0" expanded="false" />
+            <element signature="e#7867#7911#0" expanded="false" />
+            <element signature="e#7953#8111#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/detalleSiniestroCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="48" column="193" selection-start-line="48" selection-start-column="193" selection-end-line="48" selection-end-column="193" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/detalleSiniestro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="68" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
           <folding />
         </state>
       </provider>

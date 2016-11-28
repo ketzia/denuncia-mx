@@ -30,7 +30,13 @@ function data($http,$window,$rootScope){
         return $http.get('api/siniestro/usuario/'+id);
     };
 
-    // api/siniestro/anuncio/id
+    // /api/comentarios/siniestro/:id
+    obtenerComentarioPorSiniestro = function(id){
+        return $http.get('/api/comentarios/siniestro/'+id);
+    };
+
+
+    // api/siniestro/anuncio/:id
     obtenerAnuncionPorDelegacion = function(id){
         return $http.get('/api/siniestro/anuncio/'+id);
     };
@@ -38,6 +44,11 @@ function data($http,$window,$rootScope){
     // api/siniestro/register -> post
     registrarSiniestro = function(siniestro){
         return $http.post('/api/siniestro/register',siniestro);
+    };
+
+    // api/comentario/register -> post
+    registrarComentario = function(comentario){
+        return $http.post('/api/comentario/register',comentario);
     };
 
     // api/delegacion/:id
@@ -50,6 +61,8 @@ function data($http,$window,$rootScope){
         obtenerCategorias : obtenerCategorias,
         obtenerDelegacionPorId : obtenerDelegacionPorId,
         registrarSiniestro : registrarSiniestro,
+        registrarComentario : registrarComentario,
+        obtenerComentarioPorSiniestro: obtenerComentarioPorSiniestro,
         obtenerSiniestroPorDelegacion : obtenerSiniestroPorDelegacion,
         obtenerSiniestrosPorUsuario : obtenerSiniestrosPorUsuario,
         obtenerSiniestroPorId : obtenerSiniestroPorId

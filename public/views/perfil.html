@@ -90,7 +90,8 @@
                                 <md-list layout-padding>
                                     <md-list-item class="md-3-line" ng-repeat="siniestro in vm.siniestros">
                                         <!--<img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">-->
-                                        <img class="md-avatar" ng-src="http://www.garuyo.com/sites/default/files/styles/large/public/images/2015/09/siniestro-2-critica-resena_137028.jpg_628115285.jpg?itok=7jVmFpio" >
+                                        <img class="md-avatar" ng-src="{{siniestro.imagenes[0]}}" ng-if="siniestro.imagenes[0]">
+                                        <img class="md-avatar" ng-src="img/default.jpg" ng-if="!siniestro.imagenes[0]">
                                         <div class="md-list-item-text">
                                             <h3><a href="/siniestro/{{siniestro._id}}" style="color: rgb(76,175,80) !important">{{siniestro.nombre}}</a></h3>
                                             <h4>{{siniestro.domicilio}}</h4>
@@ -112,7 +113,8 @@
                                 <md-list layout-padding>
                                     <md-list-item class="md-3-line" ng-repeat="siniestroPropio in vm.siniestrosPropios">
                                         <!--<img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">-->
-                                        <img class="md-avatar" ng-src="http://www.garuyo.com/sites/default/files/styles/large/public/images/2015/09/siniestro-2-critica-resena_137028.jpg_628115285.jpg?itok=7jVmFpio" >
+                                        <img class="md-avatar" ng-src="{{siniestroPropio.imagenes[0]}}" ng-if="siniestroPropio.imagenes[0]">
+                                        <img class="md-avatar" ng-src="img/default.jpg" ng-if="!siniestroPropio.imagenes[0]">
                                         <div class="md-list-item-text">
                                             <h3><a href="/siniestro/{{siniestroPropio._id}}" style="color: rgb(76,175,80) !important">{{siniestroPropio.nombre}}</a></h3>
                                             <h4>Delegacion: {{siniestroPropio.delegacion.nombre}}</h4>

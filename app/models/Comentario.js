@@ -15,9 +15,9 @@ var comentarioSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId, ref: 'Siniestro',
         required: true
     },
-    urlImagen:{
-        type: String,
-        required:false
+    imagenes:{
+        type: Array,
+        default: []
     },
     fechaCreacion :{
         type: Date,
