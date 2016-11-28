@@ -3,6 +3,7 @@ var Delegacion = require('./models/Delegacion');
 var Siniestro = require('./models/Siniestro');
 var Categoria = require('./models/Categoria');
 var Anuncio = require('./models/Anuncio');
+var Comentario = require('./models/Comentario');
 
 var passport = require('passport');
 
@@ -31,10 +32,25 @@ module.exports = function(app) {
         });
     });
 
+    //obtener delegacion por nombre
     app.get('/api/delegacion',function(req,res){
        Delegacion.findOne({nombre: req.body.nombre}, function(err,data){
           if(!data){
             res.status(500).json("No encontre esa delegacion");
+          }else{
+              if(err){
+                  res.status(500).json(err);
+              }else{
+                  res.status(200).json(data);
+              }
+          }
+       });
+    });
+
+    app.get('/api/delegacion/:id', function(req,res){
+       Delegacion.findOne({_id:req.params.id},function(err,data){
+          if(!data) {
+              res.status(500).json("No encontre esa delegacion");
           }else{
               if(err){
                   res.status(500).json(err);
@@ -153,6 +169,16 @@ module.exports = function(app) {
        });
     });
 
+    app.get('/api/siniestro/:id', function(req,res){
+       Siniestro.findOne({_id:req.params.id},function(err,data){
+         if(err){
+             res.satus(500).json(err);
+         }else{
+             res.status(200).json(data);
+         }
+       }).populate("delegacion categoria");
+    });
+
     app.get('/api/siniestro/delegacion/:id',function(req,res){
        Siniestro.find({delegacion:req.params.id},function (err,data) {
            if(err){
@@ -161,6 +187,44 @@ module.exports = function(app) {
                res.status(200).json(data);
            }
        });
+    });
+
+    app.post('/api/comentario/register',function(req,res){
+        var comentario = new Comentario();
+        comentario.contenido = req.body.contenido;
+        comentario.usuarioCreador = req.body.usuarioCreador;
+        comentario.siniestro = req.body.siniestro;
+        if(comentario.urlImagen) comentario.urlImagen = req.body.urlImagen;
+
+        comentario.save(function(err){
+            if(err){
+                res.status(500).json(err);
+            }else{
+                res.status(200).json({"message":"Comentario registrado"});
+            }
+        });
+
+    });
+
+    app.get('/api/comentarios/siniestro/:id',function(req,res){
+        Comentario.find({siniestro: req.params.id}, function(err,data){
+            if(err){
+                res.status(500).json(err);
+            }else{
+                res.status(200).json(data);
+            }
+        });
+    });
+
+
+    app.get('/api/siniestro/usuario/:id',function(req,res){
+        Siniestro.find({usuarioCreador:req.params.id},function(err,data){
+           if(err){
+               res.status(500).json(err);
+           }else{
+               res.status(200).json(data);
+           }
+        }).populate('delegacion');
     });
 
     app.post('/api/user/login',function(req,res){

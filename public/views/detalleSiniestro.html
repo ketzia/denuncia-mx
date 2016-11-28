@@ -1,0 +1,76 @@
+<div layout="column"  ng-cloak style="height: 100%">
+    <div layout="row" flex>
+        <!-- Left sidebar -->
+        <md-sidenav
+                class="md-sidenav-left"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-xs')"
+                md-whiteframe="4"
+        >
+            <!-- Title -->
+            <md-toolbar md-theme="docs-mx">
+                <h1 class="md-toolbar-tools" style="color:white">Detalles del siniestro</h1>
+            </md-toolbar>
+            <!-- End title -->
+
+            <!-- Content inside the sidebar -->
+            <md-content layout-padding style="overflow-x: hidden">
+                <p>
+                    <b>Nombre: </b>{{vm.siniestro.nombre}}
+                </p>
+            </md-content>
+
+
+            <!-- End Content inside the sidebar -->
+        </md-sidenav>
+        <!-- End Left sidebar -->
+
+        <!-- Contenido dentro de el panel -->
+        <md-content flex layout-padding md-theme="siniestros-mx" style="height: 100%">
+
+            <md-tabs md-dynamic-height md-border-bottom >
+                <md-tab label="Informacion">
+                    <md-content class="md-padding">
+                        <h4>Descripción</h4>
+                        {{vm.siniestro.descripcion}}
+                        <br>
+                        <br>
+                        <h4>Delegacion y lugar en donde ocurrió</h4>
+                        {{vm.siniestro.delegacion.nombre}} , {{vm.siniestro.domicilio}}
+                        <br>
+                        <br>
+                        <h4>Fecha del suceso</h4>
+                        {{vm.siniestro.fechaIncidente}}
+                        <br>
+                        <br>
+                        <h4>Categoría</h4>
+                        {{vm.siniestro.categoria.nombre}}
+                        <br>
+                        <br>
+                        <h4>Imagenes:</h4>
+
+                        <ng-gallery images="vm.images"></ng-gallery>
+
+
+                    </md-content>
+                </md-tab>
+                <md-tab label="Comentarios">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Tab One</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
+                            In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
+                        </p>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+
+
+        </md-content>
+        <!-- Termina contenido dentro del panel -->
+
+
+    </div>
+</div>
+
+

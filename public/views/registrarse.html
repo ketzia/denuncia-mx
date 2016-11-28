@@ -70,8 +70,8 @@
                                 </md-input-container>
 
                                 <!-- Delegacion -->
-                                <md-input-container >
-                                    <label>Delegacion</label>
+                                <md-content style="background-color: white">
+                                    <label style="color: rgb(158, 158, 158)">Delegacion</label>
                                     <md-select ng-model="vm.credentials.delegacion" name="delegacion" required>
                                         <md-option><em>Selecciona tu delegacion</em></md-option>
                                         <md-option ng-repeat="delegacion in vm.delegaciones | orderBy: vm.delegaciones.nombre" ng-value="delegacion._id">
@@ -81,7 +81,7 @@
                                     <div ng-messages="registro.delegacion.$error">
                                         <div ng-message="required">Escoge una delegación</div>
                                     </div>
-                                </md-input-container>
+                                </md-content>
                                 <!-- Delegacion -->
 
                                 <div>

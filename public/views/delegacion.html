@@ -1,4 +1,4 @@
-<div layout="column"  ng-cloak>
+<div layout="column"  ng-cloak style="height: 100%">
     <div layout="row" flex>
         <!-- Left sidebar -->
         <md-sidenav
@@ -55,7 +55,7 @@
                                         <!--<img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">-->
                                         <img class="md-avatar" ng-src="http://www.garuyo.com/sites/default/files/styles/large/public/images/2015/09/siniestro-2-critica-resena_137028.jpg_628115285.jpg?itok=7jVmFpio" >
                                         <div class="md-list-item-text">
-                                            <h3>{{siniestro.nombre}}</h3>
+                                            <h3><a href="/siniestro/{{siniestro._id}}">{{siniestro.nombre}}</a></h3>
                                             <h4>{{siniestro.domicilio}}</h4>
                                             <p>
                                                 {{siniestro.descripcion}}
@@ -113,8 +113,6 @@
                                     <nvd3 data="vm.data2" options="vm.options2" events="events"></nvd3>
                                 </div>
                             </div>
-
-                            <hr>
                         </div>
                     </div>
                 </div>

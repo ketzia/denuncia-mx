@@ -22,6 +22,14 @@
     border-radius: 0px !important;
 }
 
+
+.tiempoRealPerfil{
+    color: #fff !important;
+    background-color: rgb(76,175,80) !important;
+    border: none !important;
+    border-radius: 0px !important;
+}
+
 .fondoRegistro {
     min-height: 100%;
     min-width: 1024px;
@@ -53,5 +61,7 @@
     display: inline-block;
     vertical-align: top;
 }
+
+
 
 

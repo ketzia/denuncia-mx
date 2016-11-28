@@ -7,7 +7,8 @@ angular.module('sampleApp', [
     'ngMaterial',
     'ngAnimate',
     'ngMessages',
-    'nvd3'])
+    'nvd3',
+    'jkuri.gallery'])
     .run(function($rootScope,data) {
         $rootScope.page = "";
         $rootScope.background = "";

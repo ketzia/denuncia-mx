@@ -11,12 +11,19 @@ var comentarioSchema = new mongoose.Schema({
         type:  Schema.Types.ObjectId, ref: 'User',
         required: true
     },
-
+    siniestro:{
+        type: Schema.Types.ObjectId, ref: 'Siniestro',
+        required: true
+    },
+    urlImagen:{
+        type: String,
+        required:false
+    },
     fechaCreacion :{
-        type: { type: Date, default: Date.now },
+        type: Date,
+        default: Date.now,
         required: true
     }
-
 
 });
 module.exports = mongoose.model('Comentario',comentarioSchema);

@@ -45,6 +45,12 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controllerAs: 'vm'
 		})
 
+		.when('/siniestro/:id',{
+			templateUrl: 'views/detalleSiniestro.html',
+			controller: 'detalleSiniestroCtrl',
+			controllerAs: 'vm'
+		})
+
 		.when('/nerds', {
 			templateUrl: 'views/nerd.html',
 			controller: 'NerdController'

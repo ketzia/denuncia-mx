@@ -61,6 +61,7 @@ userSchema.methods.generateJwt = function(){
         nombreUsuario: this.nombreUsuario,
         apellidoPaterno: this.apellidoPaterno,
         apellidoMaterno: this.apellidoMaterno,
+        idDelegacion: this.delegacion,
         exp: parseInt(expiry.getTime() / 1000)
     },"MY_SECRET");
 };

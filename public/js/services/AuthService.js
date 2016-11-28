@@ -58,7 +58,8 @@ function authentication($http,$window,$rootScope){
                 nombre: payload.nombre,
                 nombreUsuario: payload.nombreUsuario,
                 apellidoPaterno: payload.apellidoPaterno,
-                apellidoMaterno: payload.apellidoMaterno
+                apellidoMaterno: payload.apellidoMaterno,
+                idDelegacion: payload.idDelegacion
             };
         }
     };
