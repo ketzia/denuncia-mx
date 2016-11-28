@@ -1,9 +1,8 @@
 angular.module('sampleApp').controller('delegacionCtrl', delegacionCtrl);
-delegacionCtrl.$inject = ['authentication','data','d3service','$rootScope','$routeParams','$mdDialog', '$mdSidenav','$interval','$mdToast','$scope','$timeout'];
+delegacionCtrl.$inject = ['authentication','data','d3service','$rootScope','$routeParams','$mdDialog', '$mdSidenav','$interval','$mdToast','$scope','$timeout','Upload'];
 
-function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$mdDialog,$mdSidenav,$interval,$mdToast,$scope,$timeout){
+function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$mdDialog,$mdSidenav,$interval,$mdToast,$scope,$timeout,Upload){
     var vm = this;
-
 
     angular.forEach($rootScope.delegaciones, function(value,key){
         var nombre1 = value.nombre.toLowerCase().split(" ");
@@ -59,11 +58,6 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
             }
         }
     };
-
-    console.log(vm.dataBar);
-
-
-
     vm.options2 = {
         chart: {
             type: 'discreteBarChart',
@@ -87,8 +81,6 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
             }
         }
     };
-
-
     vm.categorias = $rootScope.categorias;
     vm.siniestro = {
         nombre: "",
@@ -100,7 +92,6 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
         fechaCreacion: null,
         fechaIncidente: null
     };
-
     // Intervalo de actualizacion de los datos
     $interval(function() {
         data.obtenerSiniestroPorDelegacion(vm.delegacion._id)
@@ -123,13 +114,14 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
                 ];
             });
     }, 3000);
-
     //Logica para denunciar
     vm.denunciar = function(){
+
         if(vm.siniestro.nombre != "" && vm.siniestro.descripcion != "" && vm.siniestro.domicilio != "" && vm.siniestro.fechaIncidente != "" && vm.siniestro.categoria != ""){
             vm.siniestro.delegacion = vm.delegacion._id;
             vm.siniestro.usuarioCreador = authentication.currentUser().id;
             vm.siniestro.fechaIncidente.toISOString();
+
             data.registrarSiniestro(vm.siniestro)
                 .error(function (err) {
                     $mdDialog.show($mdDialog.alert()
@@ -142,14 +134,20 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
                         .targetEvent(err)
                     );
                 })
-                .success(function () {
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .textContent('¡Denuncia exitosa!')
-                            .position('top right')
-                            .hideDelay(3000)
-                    );
-                    $mdSidenav('right').close();
+                .then(function (res) {
+                    //Subir archivos despues de registrar el siniestro
+                    //console.log(res.data.idSiniestro);
+                    if(vm.fotos){
+                        vm.subirFotos(res.data.idSiniestro);
+                    }else{
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('¡Denuncia exitosa!')
+                                .position('top right')
+                                .hideDelay(3000)
+                        );
+                        $mdSidenav('right').close();
+                    }
                 });
         }else{
             $mdDialog.show($mdDialog.alert()
@@ -161,6 +159,25 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
                 .ok('Ok')
             );
         }
+
+        //console.log(vm.fotos);
+    };
+
+    vm.subirFotos = function(idSiniestro){
+        for(var i=0;i<vm.fotos.length;i++){
+            console.log(vm.fotos[i]);
+            Upload.upload({
+                url: '/api/siniestro/uploadImage',
+                data: {file: vm.fotos[i],'idSiniestro':idSiniestro}
+            });
+        }
+        $mdToast.show(
+            $mdToast.simple()
+                .textContent('¡Denuncia exitosa!')
+                .position('top right')
+                .hideDelay(3000)
+        );
+        $mdSidenav('right').close();
     };
 
     /* Cosas del panel */
@@ -211,8 +228,6 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
     vm.close = function(){
         $mdSidenav('right').close();
     }
-
-
     $scope.$watch('fetching', function() {
         if(!vm.fetching) {
             $timeout(function() {
@@ -220,6 +235,8 @@ function delegacionCtrl(authentication,data,d3service,$rootScope,$routeParams,$m
             }, 500);
         }
     });
+
+
 }
 
 

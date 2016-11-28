@@ -53,7 +53,7 @@
                                 <md-list layout-padding>
                                     <md-list-item class="md-3-line" ng-repeat="siniestro in vm.siniestros">
                                         <!--<img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">-->
-                                        <img class="md-avatar" ng-src="http://www.garuyo.com/sites/default/files/styles/large/public/images/2015/09/siniestro-2-critica-resena_137028.jpg_628115285.jpg?itok=7jVmFpio" >
+                                        <img class="md-avatar" ng-src="{{siniestro.imagenes[0]}}" >
                                         <div class="md-list-item-text">
                                             <h3><a href="/siniestro/{{siniestro._id}}">{{siniestro.nombre}}</a></h3>
                                             <h4>{{siniestro.domicilio}}</h4>
@@ -203,9 +203,16 @@
                     </md-input-container>
                     <!-- Delegacion -->
 
+                    <br>
+
+                    <md-button ngf-select ng-model="vm.fotos" class="md-raised md-warn" ngf-multiple="true">Subir fotos</md-button>
+
                     <div>
                         <md-button ng-click="vm.denunciar()" class="md-raised md-primary">
                             Guardar
+                        </md-button>
+                        <md-button ng-click="vm.toggleRight()" class="md-raised">
+                            Cancelar
                         </md-button>
                     </div>
 

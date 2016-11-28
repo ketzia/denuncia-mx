@@ -8,6 +8,7 @@ angular.module('sampleApp', [
     'ngAnimate',
     'ngMessages',
     'nvd3',
+    'ngFileUpload',
     'jkuri.gallery'])
     .run(function($rootScope,data) {
         $rootScope.page = "";

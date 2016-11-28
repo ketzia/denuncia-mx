@@ -26,6 +26,10 @@ var siniestroSchema = new mongoose.Schema({
         type:  String,
         required: true
     },
+    imagenes: {
+        type: Array,
+        default: []
+    },
     fechaCreacion :{
         type: Date,
         default: Date.now,

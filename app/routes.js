@@ -5,8 +5,12 @@ var Categoria = require('./models/Categoria');
 var Anuncio = require('./models/Anuncio');
 var Comentario = require('./models/Comentario');
 
+
 var passport = require('passport');
 
+var uuid = require('node-uuid');
+var multiparty = require('multiparty');
+var fs = require('fs');
 
 module.exports = function(app) {
     // API v1 - Denuncia-mx
@@ -141,6 +145,7 @@ module.exports = function(app) {
     });
 
     app.post('/api/siniestro/register',function(req,res){
+        //console.log(req.body.fotos);
         var siniestro = new Siniestro();
         siniestro.nombre = req.body.nombre;
         siniestro.descripcion = req.body.descripcion;
@@ -154,8 +159,50 @@ module.exports = function(app) {
            if(err){
                res.status(500).json(err);
            }else{
-               res.status(200).json({"message":"Siniestro registrado"});
+               res.status(200).json({"message":"Siniestro registrado","idSiniestro":siniestro._id});
            }
+        });
+    });
+
+    app.post('/api/siniestro/uploadImage',function(req,res){
+        var form = new multiparty.Form();
+        form.parse(req, function(err,fields,files){
+            //console.log(files);
+            var file = files.file[0];
+            var contentType = file.headers['content-type'];
+            var tmpPath = file.path;
+            var extIndex = tmpPath.lastIndexOf('.');
+            var extension = (extIndex < 0) ? '' : tmpPath.substr(extIndex);
+            var fileName = uuid.v4() + extension;
+
+            var destPath = './public/imagenesSiniestros/' + fileName;
+            var urlImagen = '/imagenesSiniestros/' +fileName;
+
+            if(contentType != 'image/png' && contentType !== 'image/jpeg'){
+                fs.unlink(tmpPath);
+                return res.status(500).send('Unsupported file type');
+            }
+
+            fs.rename(tmpPath, destPath, function(err){
+                if(err){
+                    res.status(500).send(err);
+                }
+
+                Siniestro.findOne({_id:fields.idSiniestro}, function(err,siniestro){
+                    if(!siniestro){
+                        console.log("No encontre ese siniestro");
+                    }else{
+                        siniestro.imagenes.push(urlImagen);
+                        siniestro.save(function(err){
+                            if(err){
+                                res.status(500).json(err);
+                            }
+                        });
+                    }
+                });
+
+                res.status(200);
+            });
         });
     });
 
