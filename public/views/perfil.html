@@ -1,21 +1,3 @@
-<!--
-<div class="row pt40">
-    <div class="container">
-        <div class="col-md-4">
-            <h3>Bienvenido</h3>
-            <hr>
-            <h5>Datos:</h5>
-            <h6>Nombre: {{vm.usuario.nombre}} {{vm.usuario.apellidoPaterno}} {{vm.usuario.apellidoMaterno}}</h6>
-            <h6>Email: {{vm.usuario.email}}</h6>
-            <h6>Username: {{vm.usuario.nombreUsuario}}</h6>
-        </div>
-        <div class="col-md-8">
-            Aquí va a ir el newsfeed
-        </div>
-    </div>
-</div>
--->
-
 <div layout="column"  ng-cloak style="height: 100%">
     <div layout="row" flex>
         <!-- Left sidebar -->
@@ -33,29 +15,86 @@
 
             <!-- Content inside the sidebar -->
             <md-content layout-padding style="overflow-x: hidden">
-                <h4>Información Personal</h4>
-                <p>
-                    <b>Nombre: </b>{{vm.usuario.nombre}} {{vm.usuario.apellidoPaterno}} {{vm.usuario.apellidoMaterno}}
-                    <br>
-                    <b>E-mail: </b>{{vm.usuario.email}}
-                    <br>
-                    <b>Nombre de usuario: </b>{{vm.usuario.nombreUsuario}}
+
+                <!-- Sin editar -->
+                <div ng-if="!vm.editando">
+                    <h4>Información Personal</h4>
+                    <p>
+                        <b>Nombre: </b>{{vm.usuario.nombre}} {{vm.usuario.apellidoPaterno}} {{vm.usuario.apellidoMaterno}}
+                        <br>
+                        <b>E-mail: </b>{{vm.usuario.email}}
+                        <br>
+                        <b>Nombre de usuario: </b>{{vm.usuario.nombreUsuario}}
+                    </p>
+                    <hr>
+                    <h4>Tu delegación</h4>
+                    <p>
+                        <b>Nombre:</b> {{vm.delegacion.nombre}}
+                        <br>
+                        <b>Domicilio:</b> {{vm.delegacion.domicilio}}
+                        <br>
+                        <b>Teléfono delegación: </b>{{vm.delegacion.telefonoDelegacion}}
+                        <br>
+                        <b>Teléfono Servicios: </b>{{vm.delegacion.telefonoServicios}}
+                        <br>
+                        <b>Teléfono Seguridad: </b>{{vm.delegacion.telefonoSeguridad}}
+                        <br>
+                        <b>Protección Civil: </b>{{vm.delegacion.telefonoProteccionCivil}}
+                    </p>
+                </div>
+                <!-- Termina sin editar -->
+
+                <!-- Editando -->
+                <md-content ng-if="vm.editando" md-theme="docs-mx">
+                    <form name="registro" novalidate>
+                        <!-- Nombre -->
+                        <md-input-container class="md-block">
+                            <label>Nombre</label>
+                            <input required name="nombre" ng-model="vm.usuario.nombre">
+                            <div ng-messages="registro.nombre.$error">
+                                <div ng-message="required">Ingresa tu nuevo nombre</div>
+                            </div>
+                        </md-input-container>
+                        <!-- Termina nombre -->
+
+                        <!-- Apellido Paterno -->
+                        <md-input-container class="md-block">
+                            <label>Apellido Paterno</label>
+                            <input required name="apellidoPaterno" ng-model="vm.usuario.apellidoPaterno">
+                            <div ng-messages="registro.apellidoPaterno.$error">
+                                <div ng-message="required">Ingresa tu nuevo apellido paterno</div>
+                            </div>
+                        </md-input-container>
+                        <!-- Termina Apellido Paterno -->
+
+                        <!-- Apellido Materno -->
+                        <md-input-container class="md-block">
+                            <label>Apellido Materno</label>
+                            <input name="apellidoMaterno" ng-model="vm.usuario.apellidoMaterno">
+                        </md-input-container>
+                        <!-- Termina Mombre -->
+
+                        <!-- Password -->
+                        <md-input-container class="md-block">
+                            <label>Contraseña</label>
+                            <input  type="password" required name="password" ng-model="vm.usuario.password">
+                            <div ng-messages="registro.password.$error">
+                                <div ng-message="required">Por favor ingresa una nueva contraseña</div>
+                            </div>
+                        </md-input-container>
+                        <!-- Password -->
+
+                        <md-button class="md-raised md-primary" ng-click="vm.putEditar()">Guardar</md-button> <md-button class="md-raised md-warn" ng-click="vm.toggleEditar()">Cancelar</md-button>
+                    </form>
+                </md-content>
+                <!-- Termina editando -->
+
+
+                <p class="text-center">
+                    <md-button class="md-raised md-warn" ng-click="vm.toggleEditar()" ng-if="!vm.editando">Editar mis datos</md-button>
                 </p>
-                <hr style="margin-bottom: 0px">
-                <h4>Tu delegación</h4>
-                <p>
-                    <b>Nombre:</b> {{vm.delegacion.nombre}}
-                    <br>
-                    <b>Domicilio:</b> {{vm.delegacion.domicilio}}
-                    <br>
-                    <b>Teléfono delegación: </b>{{vm.delegacion.telefonoDelegacion}}
-                    <br>
-                    <b>Teléfono Servicios: </b>{{vm.delegacion.telefonoServicios}}
-                    <br>
-                    <b>Teléfono Seguridad: </b>{{vm.delegacion.telefonoSeguridad}}
-                    <br>
-                    <b>Protección Civil: </b>{{vm.delegacion.telefonoProteccionCivil}}
-                </p>
+
+
             </md-content>
             <!-- End Content inside the sidebar -->
         </md-sidenav>
@@ -130,78 +169,6 @@
                 </div>
             </div>
         </md-content>
-        <!-- Termina contenido dentro del panel -->
-
-        <!-- Right sidenav -->
-        <!--
-        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-            <md-toolbar md-theme="docs-mx">
-                <h1 class="md-toolbar-tools" style="color:white">Nueva publicación</h1>
-            </md-toolbar>
-
-            <md-content layout-padding md-theme="docs-mx">
-
-                <form name="registro" novalidate>
-
-
-                    <md-input-container >
-                        <md-datepicker ng-model="vm.siniestro.fechaIncidente" md-placeholder="Fecha suceso">
-                        </md-datepicker>
-                    </md-input-container>
-
-                    <md-input-container class="md-block">
-                        <label>Nombre Siniestro</label>
-                        <input required name="nombre" ng-model="vm.siniestro.nombre">
-                        <div ng-messages="registro.nombre.$error">
-                            <div ng-message="required">Ingresa el nombre del siniestro</div>
-                        </div>
-                    </md-input-container>
-
-                    <md-input-container class="md-block">
-                        <label>Descripcion</label>
-                        <textarea required md-maxlength="300" rows="5" name="descripcion" ng-model="vm.siniestro.descripcion">
-                        </textarea>
-                        <div ng-messages="registro.descripcion.$error">
-                            <div ng-message="required">Ingresa la descripcion del siniestro</div>
-                            <div ng-message="md-maxlength">Has superado el limite de caracteres, acorta tu descripción.</div>
-                        </div>
-                    </md-input-container>
-
-                    <md-input-container class="md-block">
-                        <label>Lugar donde ocurrio el hecho</label>
-                        <textarea required md-maxlength="300" rows="3" name="domicilio" ng-model="vm.siniestro.domicilio">
-                        </textarea>
-                        <div ng-messages="registro.domicilio.$error">
-                            <div ng-message="required">Ingresa el domicilio en donde ocurrio el siniestro</div>
-                            <div ng-message="md-maxlength">Has superado el limite de caracteres.</div>
-                        </div>
-                    </md-input-container>
-
-                    <md-input-container >
-                        <label>Categoría</label>
-                        <md-select ng-model="vm.siniestro.categoria" name="categoria" required>
-                            <md-option><em>Selecciona la categoría</em></md-option>
-                            <md-option ng-repeat="categoria in vm.categorias | orderBy: vm.categorias.nombre" ng-value="categoria._id">
-                                {{categoria.nombre}}
-                            </md-option>
-                        </md-select>
-                        <div ng-messages="registro.categoria.$error">
-                            <div ng-message="required">Escoge una categoría</div>
-                        </div>
-                    </md-input-container>
-
-
-                    <div>
-                        <md-button ng-click="vm.denunciar()" class="md-raised md-primary">
-                            Guardar
-                        </md-button>
-                    </div>
-
-                </form>
-            </md-content>
-        </md-sidenav>
-        -->
-
     </div>
 </div>
 

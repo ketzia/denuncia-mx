@@ -4,13 +4,11 @@ var Siniestro = require('./models/Siniestro');
 var Categoria = require('./models/Categoria');
 var Anuncio = require('./models/Anuncio');
 var Comentario = require('./models/Comentario');
-
-
 var passport = require('passport');
-
 var uuid = require('node-uuid');
 var multiparty = require('multiparty');
 var fs = require('fs');
+
 
 module.exports = function(app) {
     // API v1 - Denuncia-mx
@@ -361,6 +359,30 @@ module.exports = function(app) {
                 res.status(200).json(datos);
             }
         }).populate('categoria');
+    });
+
+    app.put('/api/user/edit',function(req,res){
+        User.findById(req.body.id,function(err,usuario){
+           if(err){
+               res.status(500).json(err);
+           }else{
+               usuario.nombre = req.body.nombre;
+               usuario.apellidoPaterno = req.body.apellidoPaterno;
+               usuario.apellidoMaterno = req.body.apellidoMaterno;
+               usuario.setPassword(req.body.password);
+               usuario.save(function(err){
+                   if(err){
+                       res.status(500).json(err);
+                   }else{
+                       res.status(200);
+                       var token = usuario.generateJwt();
+                       res.json({
+                           "token":token
+                       });
+                   }
+               });
+           }
+        });
     });
 
 

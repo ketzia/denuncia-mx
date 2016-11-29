@@ -13,6 +13,13 @@ function authentication($http,$window,$rootScope){
         return $window.localStorage['mean-token'];
     };
 
+    edit = function(user){
+        return $http.put('/api/user/edit',user)
+            .success(function(data){
+               saveToken(data.token);
+            });
+    };
+
     register = function (user) {
         return $http.post('/api/user/register',user)
             .success(function(data){
@@ -66,6 +73,7 @@ function authentication($http,$window,$rootScope){
 
     return{
         saveToken: saveToken,
+        edit: edit,
         currentUser: currentUser,
         login: login,
         logout: logout,
