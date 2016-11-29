@@ -61,6 +61,12 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'GeekController'	
 		})
 
+		.when('/aboutUs',{
+			templateUrl: 'views/aboutUs.html',
+			controller: 'aboutCtrl',
+			controllerAs: 'vm'
+		})
+
 		.otherwise({
 			redirectTo:'/'
 		});

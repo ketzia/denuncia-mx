@@ -52,7 +52,11 @@
     }
 }
 
-
+.headPanel{
+        background-color:#ffffff !important;
+        font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    |   font-size: 40px !important;
+}
 .spanChart{
     width: -moz-calc(100% - 370px);
     width: -webkit-calc(100% - 370px);
