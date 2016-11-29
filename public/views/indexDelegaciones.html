@@ -25,12 +25,13 @@
                             <b>Tel Proteccion Civil:</b> {{tile.telefonoProteccionCivil}}
                         </md-card-title-text>
                         <md-card-title-media>
-                            <div class="md-media-lg card-media"></div>
+                            <div class="md-media-lg card-media">
+                                <img src="img/{{tile.nombre}}.jpg">
+                            </div>
                         </md-card-title-media>
                     </md-card-title>
                     <md-card-actions layout="row" layout-align="end center">
-                        <a href="/delegacion/{{tile.nombre}}"><md-button >Ver Delegación</md-button></a>
-                        <md-button>Action 2</md-button>
+                        <a href="/delegacion/{{tile.nombre}}"><md-button class="md-raised md-primary">Ver Delegación</md-button></a>
                     </md-card-actions>
                 </md-card>
             </md-grid-tile>
